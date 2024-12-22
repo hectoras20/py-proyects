@@ -14,17 +14,8 @@ def generate_PIE_chart():
     plt.savefig("pie.png")
     plt.close()
 
-
-#Lo que va en main como script de ejecución es lo siguiente:
-#Script que prueba el modulo "Sample" para generar charts
-import sample_charts as sch
-
-def run():
-    """
-    ACTUALIZA en formato png la gráfica de pastel o circular al ejecutarse
-    """
-    sch.generate_PIE_chart()
-
-if __name__ == "__main__":
-    run()
-
+def generate_bar_chart(labels, values):
+    fig, ax = plt.subplots()
+    ax.bar(labels, values)
+    plt.savefig('bar.png')
+    plt.close()
