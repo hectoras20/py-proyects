@@ -1,4 +1,4 @@
-#!/Users/hectorastudillo/py-proyects/reader_pandas/env_pandas-reader/bin/python3
+#!/Users/hectorastudillo/py-proyects/reader_algrthm-mod/env_readers/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
