@@ -1,0 +1,14 @@
+# inicia archivo .gitignore
+# ignorar todos los arcivos
+*
+
+# Excepto los que de python
+!.gitignore
+!*.py
+!*.md
+!*.ipynb
+!scripts
+!fc
+!jn
+
+# finaliza archivo .gitignore
