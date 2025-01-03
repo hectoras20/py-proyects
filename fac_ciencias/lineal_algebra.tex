@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{amssymb}
+
+
+\title{Álgebra Lineal}
+\author{Héctor Astudillo}
+\date{January 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Espacios Vectoriales}
+\subsection*{Vectores}
+Sea \( F \) un campo. Un espacio vectorial sobre \( F \) (denotado como \( EV/F \)) es un conjunto \( V \) (cuyos elementos son los vectores que pertenecen al espacio vectorial), equipado con dos operaciones que satisfacen 8 axiomas:
+
+\begin{itemize}
+    \item \(EV1\) Closure under the addition: 
+    Let \( u, v \in V \), then \( u + v \in V \).
+    \item \(EV2\) Associativity of addition:
+    For all \( u, v, w \in V \), we have that \( u + (v + w) = (u + v) + w \).
+    \item Commutativity of addition: 
+    For all \( u, v \in V \), we have that \( u + v = v + u \).
+    \item \(EV3\) Elemento neutro aditivo - Additive identity: 
+    Exists \( 0 \in V \) such that \( u + 0 = u \) para todo \( u \in V \).
+    \item \(EV4\) Elemento inverso aditivo - Additive inverses:
+    For each \( u \in V \), exist a unique element \( -u \in V \) such that \( u + (-u) = 0 \).
+    \item \(EV5\) Scalar Product/Multiplication: 
+    For all \( c, d \in F \) and \( u \in V \), it satisfies that \( (c \cdot d) \cdot u = c \cdot (d \cdot u) \).
+    \item \(EV6\) Neutro/Identidad escalar - Identity element of Scalar Multiplication: 
+    For all \( u \in V \), it follows that \( 1 \cdot u = u \), where \( 1 \) is the identity element of the product from the field \( F \).
+    \item \(EV7\) Distributivity of scalar over field addition: 
+    For all \( c, d \in F \) and \( u \in V \), it holds that \( (c + d) \cdot u = c \cdot u + d \cdot u \).
+    \item \(EV8\) Distributivity of scalar over vector addition: 
+    Para todo \( c \in F \) y \( u, v \in V \), se cumple \( c \cdot (u + v) = c \cdot u + c \cdot v \).
+\end{itemize}
+
+\(F^n\) significa las n-adas de números del campo \(F\)
+
+Por ejemplo, si \(x \in F^n\) entonces hablamos de un vector con \(n\) entradas cuyos coeficientes pertenecen al campo \(F\).
+\\
+\subsection*{Matrices}
+Sean \(m,n \in N\) y \(F\) un campo definimos a \(F^{mxn}\) como el conjunto de todas las matrices de tamaño \(m x n\) con entradas en \(F\)
+\\
+\\
+Remember that:
+\\
+The sum of matrices is equal entry by entry.
+\\
+\\
+Let us formally define the addition and scalar product on the vectorial space \(F^{mxn}\).
+\\
+
+Addition:
+
+Let \(M, N \in F\)...
+
+For every \(i \leq m\) and every \(j \leq m\) we have that \((M + N)_{ij} = M_{ij} + N_{ij}\)
+\\
+
+Scalar Product
+
+\(\alpha \in F\), \(m \in F^{mxn}\) such that \(\alpha M \in F^{mxn}\)
+
+Then, \(i \leq m\) and every \(j \leq m\) we have that \((M + N)_{ij} := \alpha \cdot M_{ij}\)
+\\
+\\
+Now we can see that this kind of spaces satisfy the remaining 6 axioms.
+\\
+\\
+Another example... now, we are going to work with functions.
+
+\subsection*{Functions}
+Let \(F\) be a field and \(S\) \textbf{a non-empty set}
+\\
+We define \(F^S\) as \((f | f: S \rightarrow F)\)
+\\
+In this case, \(S\) is the codomain and \(F\) (the field) is the domain.
+\\
+
+Notation:
+
+We can express a function in 2 different ways...
+\begin{itemize}
+    \item \(f : [a,b] \rightarrow R\)
+    \item \(F \in R^{[a,b]}\)
+\end{itemize}
+
+Remember the following from Calculus 1:
+
+Let \(f,g \in R^{[a,b]}\) the addition of this functions \(f+g\) maps from \([a,b]\) to \( \mathbb{R}, \forall x \in [a,b]\)
+
+Then, \((f+g)(x) = f(x) + g(x)\)
+\\
+\\
+So it´s the same for our example, now we are going to define the scalar product:
+
+Let \(\alpha \in F\) and \(f \in F^S\)
+
+We want to get \(\alpha \cdot f \in F^S\)
+
+\(\forall t \in S\)
+
+\((\alpha \cdot f)(t) := \alpha \cdot f(t)\)
+\\
+\\
+We already have the addition and scalar product now we can compute the remaining 6 axioms, but there is something else if we want to prove that a functions is equal to another function, we need to prove that the codomain, domain and rule of correspondence it´s the same for both.
+\\
+
+Lets shall the \(EV8\)
+
+Let \(\alpha \in F\) and \(f,g \in F^S\)
+
+PD. \(\alpha \cdot (f+g) = \alpha f +\alpha g\)
+\\
+
+Domain:
+
+\(dom(\alpha(f+g)) = S\)
+
+\(dom(\alpga f + \alpha g) = S\)
+\\
+
+Codomain:
+
+\(cod(\alpha(f+g)) = F\)
+
+\(cod(\alpga f + \alpha g) = F\)
+\\
+
+For the rule of correspondence:
+
+Let \(t \in S\)
+
+\((\alpha(f+g))(t) = \alpha \cdot (f+g)(t)\)
+
+\(=\alpha \cdot (f(t) + g(t))\) the field has distributivity
+
+\(= \alpha \cdot f(t) + \alpha \cdot g(t)\)
+
+\(=(\alpha f)(t) + (\alpha g)(t)\)
+
+\(=(\alpha f + \alpha g)(t)\)
+
+\subsection*{Polynomials}
+
+A polynomial with coeficients in \(F\) is:
+
+\[
+\sum_{i=0}^{n} a_i x^i = a_0 + a_1 x^1 + a_2x^2 + a_3x^3... +a_nx^n} 
+\] 
+where \(n \in \mathbb{N} \cup {0}\) and \(\{a_i : 0 \leq i \leq n\} \subsetneq F\)
+\\
+\\
+\(F[x]\) is the collection of all the polynomials with coefficients in \(F\)
+\\
+\\
+Now we need to define the addition and scalar product to shall the remaining 6 axioms. Let´s see how to define formally a polynomial:
+
+Let \(p \in F[x] \rightarrow \exists n \in \mathbf{N}\cup\{0\}\)
+
+
+\(\qquad \qquad \qquad \quad \exists \{a_i : 0\leq i \leq n\} \subset F\)
+
+Such that 
+
+\[ \(p = \sum_{i=0}^{n} a_ix^i\). \]
+
+The same if we have \(q \in F[x]\)
+
+Let \(q \in F[x] \rightarrow \exists m \in \mathbf{N}\cup\{0\}\)
+
+
+\(\qquad \qquad \qquad \quad \exists \{b_i : 0\leq i \leq m\} \subset F\)
+
+Such that 
+
+\[ \(q = \sum_{i=0}^{m} b_ix^i\). \]
+\\
+\textbf{Notice that each polynomial has its own highest degree term and set of coefficients}
+\\
+The degree term n and m could be any value in Natural field, anyone, so one could be bigger than other, that is the reason why we define \(k\) 
+
+Let \(k := max\{m,n\} \rightarrow \forall n < i \leq k\) \((a_i :=0)\)
+
+\(\qquad \qquad \qquad \qquad \qquad \forall m < i \leq k\) \((b_i :=0)\)
+
+This help us to complete, force the polynomial to have the same degree term (the highest)
+\\
+
+Let´s shall and make an abstract definition of addition and scalar product with polynomials and then, prove the remaining 8 axioms.
+\\
+\\
+Addition
+\\
+We are going to use \(k\) the highest value between m and n that complete the polynomial.
+
+Let \(p, q \in F[X]\)
+
+We define the addition of polynomials as follow:
+\[
+\(p+ q = \sum_{i=0}^{k} (a_i + b_i) x^i\) \]
+\\
+\\
+Scalar Product
+
+Let \(\alpha \in F\) and \(p \in F[x]\)
+
+Remember how to define formally an polynomial:
+
+\(p \in F(x) \rightarrow \exists n \in \mathbf{N}\cup \{0\}\)
+
+\(\qquad \qquad \quad \exists \{a_i : 0 \leq i \leq m \} \subset F\)
+\\
+\\
+\textbf{Remember this order:}
+
+\textbf{Exist a degree term, the polynomial has a limit, you have to define this.}
+
+\textbf{Then you have to define the coefficient of this polynomial, even define the close interval in the same line, this is the index that can take the coefficients, \(i\)}.
+\\
+\\
+Well I notice that I said "the remaining 6 axioms in the sections", which is wrong, are 8 axioms cause we define the closure of addition and closure under scalar multiplication. In total are 10 axioms, not 8.
+\\
+Now let´s shall the \(EV1\) axiom. Commutativity of addition.
+
+\end{document}
