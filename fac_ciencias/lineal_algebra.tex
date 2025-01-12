@@ -247,7 +247,7 @@ Then, \(p+q = \sum_{i=0}^{k} (b_i+a_i)x^i = p+q\)
 The following outcomes provide us the fundamental properties of a vector space
 
 
-\subsection*{Theorem 1. Cancellation law for vector addition}
+\subsection*{Theorem 1 - Cancellation law for vector addition}
 
 If \(x, y, z\) are elements of a vector space \(V\) such that \(x+z=y+z \Rightarrow x= y\)
 \\
@@ -275,8 +275,8 @@ We apply the theorem 1 in this case... by the cancellation law of addition we ob
 
 Thus exists a unique vector \(w \in V \) such that \(x+w=x, \forall x \in V\)
 
-\subsection*{Theorem 1.2. 0 vector properties}
-If \(v\) is a EV/F, then:
+\subsection*{Theorem 1.2 - Three axioms that satisfy vector spaces, focused on vector operations}
+\textbf{If \(V\) is a EV/F}, then:
 
 1. \(\forall v \in V (0\cdot v = 0_v)\)
 
@@ -294,7 +294,7 @@ We say that \(W \subsetneq V\) is a subspace
 
 If the operations of V, the space, are the same in W since is a subspace then, we need to verify two operations and the remaining axioms. However, it is sufficient to prove only three axioms.
 
-\subsection*{Theorem 1.3. 3 axioms that prove a vector subspace}
+\subsection*{Theorem 1.3 - Three axioms that prove a vector subspace}
 
 Let \(V\) a EV/F and \(W \subset V\)
 
@@ -349,5 +349,279 @@ Since \(W \subseteq V,\;\; x,y \in V\) and V is a VS/F...
 We conclude that \(x+y=y+x\)
 
 \subsection*{Transposed Matrices}
-\end{document}
 
+1. Define the elements...
+
+Let \(m,n \in \mathbb{N}\) and \(M \in F^{\textbf{mxn}} \) 
+\\
+\\
+2. Define the method, in this case is the concept of transpose.
+
+The transpose of \(M\) is the matrix \((M^T) \in F^{\textbf{nxm}}\) 
+
+Notice the degree term that belongs to each matrix
+
+\(\forall \;\textbf{i} \leq m\) and \(\forall \;\textbf{j} \leq n, \;\; ((M^T)_{\textbf{ij}} = M_{\textbf{ji}})\)
+\\
+\\
+\textbf{If \(M^T = M\) we say that M is symmetric}
+\\
+\\
+The collection of symmetrical matrix are a subspace, \textbf{notice that the degree term of this matrices have to be square, for instance, the size n x n}.
+
+Let us see an example of this:
+
+Let \(n \in \mathbb{N}\) and \(M \in F^{\textbf{nxn}} \) 
+
+Define the concept, in this case we want to prove that transposed matrices with size square are a subspace...
+
+\(W := \{M \in F^{\textbf{nxn}} : M^T = M\}\), then \(W \leq F^{\textbf{nxn}}\)
+\\
+
+We can prove it with \(0 \in F^{\textbf{nxn}}\)
+
+\(\forall \;\; i,j \leq n\;\; (0_{ij} = 0) \)
+
+Of course 0, the "normal" 0, but this 0 belongs to our subspace \(W\)!
+\\
+
+Formally:
+
+1. Define 0 as a matrix and its tranpose
+
+2. Define the limit of the degree term and what you want to prove, in this case:
+
+\((0^t)_{ij} = o_{ji} = 0 \in W\)
+
+Moreover, \(0_{ij} = 0\)
+
+Thus (\(0^t)_{ij} = 0_{ij}\)
+
+Summary: \(0^t = 0\)
+\\
+
+Now, prove the closure under addition and multiplication.
+
+Notice we apply the concept of transpose to the operations, we don´t make the operations between the tranposed elements...
+\\
+\\
+Closure under addition
+
+\(\forall M, N \in W \;\;(M+N\in W)\), both are from the same space (still square)
+
+Is \((M+N )^t = M+N\)
+
+Let \(i,j \leq n\)
+
+\((M+N)^t = (M+N)_{ji} 
+
+= M_{ji} + N_{ji}\) by def
+
+I want get the equality...
+
+\(= M_{ij} + N_{ij} = (M+N)_{ij}\)
+
+As \(M,N \in W\),
+
+\(M_{ji} = M^t = M_{ij}\)
+
+\textbf{We are just applying the concept that is over the subspace}
+
+Thus, \(M_{ji} = M_{ij}\)
+
+The same for the matrix \(N\)
+
+Thus, \(M_{ji} + N_{ji} = M_{ij} + N_{ij} = (M+N)_{ij}\)
+\\
+\\
+I didn´t get the following notation but make sense:
+
+\(((M+N)^t)_{ij}\)
+
+"We apply the transpose to the term degree \(ij\), just that... \((M+N)_{ij}\) apply the tranpose, just a comment.
+\\
+\\
+It is the same for the scalar product.
+\\
+\\
+\subsection*{5 subspaces applying functions}
+Now we are going to present 5 examples (of different structures/dimensions) of subspaces with a function applied.
+\\
+\\
+1. The following example is to polynomials.
+
+Let \(n \in \mathbb{N}\{0\}\)
+
+We define the collection \(F_n[x] := \{p \in F[x] : \alpha p \leq n\}\)
+
+We want to achieve this statement over each operation.
+
+Obs. In the book... \(\alpha 0 = -1\) but for us \(\alpha 0 = - \infty\)
+\\
+
+Notice that we apply a concept (I even don´t know who is but is related with \(\alpha\)), and we are going to prove that \(F_n[x]\) is a subspace.
+\\
+
+\begin{itemize}
+    \item 0 is the zero from \(F[x]\) moreover, \(\alpha 0 = -\infty < n\)
+
+Thus, \( \in F_n[x]\)
+
+    \item Let \(p, l \in F_n[x]\)
+
+To prove \(p+l \in F_n[x]\)
+
+We can use the following statement without demostrate it: \(\alpha(p+l) \leq max(\alpha p, \alpha l)\)
+
+Since \(p,l \in F[x] \rightarrow \alpha p \leq n,\;\; \alpha l \leq n \)
+
+Then we have \(\alpha p + \alpha l = \alpha (p+l)\) which is less than or equal to n
+
+    \item Let \(\beta \in F\) a scalar, and \(p \in F_n[x]\) 
+
+To prove, \(\beta \cdot p \in F_n[x]\)
+
+We know that \(\beta p \in F[x]\)
+
+\(\alpha(\beta p) = \alpha \beta + \alpha p\)
+
+Notice that if \(\beta = 0\) then, we get \(-\infty\) from \(\alpha \beta\), but if \(\beta\) is not equal to 0 we get a 0
+
+Both cases are in \(F_n[x]\), the subspace
+\end{itemize}
+
+2. \(\mathbb{R}^{\mathbb{R}}\) this is a set of functions that maps from \(\mathbb{R}\) to \(\mathbb{R}\), (or is a mapping from x to y)
+
+For this case we define \(C(\mathbb{R})\) as the collection of continuous functions
+
+\(C(\mathbb{R}) := \{f \in \mathbb{R}^{\mathbb{R}} : f \) is continuous\}
+
+\begin{itemize}
+    \item Let \(0 : \mathbb{R} \rightarrow \mathbb{R}\)
+
+    Any constant function is contonuous; Thus, \(0 \in \mathbb{R}^{\mathbb{R}}\)
+
+    \item The addition of continuous functions are contonuous
+
+    \item The same for the multiplication
+\end{itemize}
+
+\subsection*{Theorem 1.4 - V is a EV/F. If \(W_1 \leq V\) and \(W_2 \leq V\), \(then W_1 \cap W_2 \leq V\)}
+This means that the intersection of \mathbf{these} subspaces also satisfy the three axioms that make it a subspace.
+
+Let us demonstrate the theorem with the previous statement:
+
+\begin{itemize}
+    \item ¿\(0_v \in W_1 \cap W_2\)?
+    
+    Since \(W_1 \leq V\) and \(W_2 \leq V\)
+    
+    Then, \(0_v \in W_1\) and the same for \(W_2\)
+
+    Thus, \(0 \in W_1 \cap W_2\)
+
+    \item Let \(w_1, w_2 \in W_1 \cqp W_2\)
+
+    To prove, the sum of these elements are in the subspace
+
+    Since \(w_1, w_2 \in W_1 \leq W_2 \subset W_1\) and \(W_2\) (both elements in both subspaces of \(V\)).
+
+    Then \(w_1 + w_2 \in W_1\) and \(W_2\)
+
+    Thus, the sum is an element of the intersection.
+
+    \item Let \(\alpha \in F \) and \(w \in W_1\cap W_2\)
+
+    To prove, \(\alpha w \in W_1 \cap W_2\)
+
+    Since \(w \in W_1, W_2\)...
+
+    \(\alpha w \in W_1, W_2\)
+
+    Thus, \(\alpha w \in W_1\cap W_2\)
+\end{itemize}
+
+\subsection*{Corollary}
+
+If \(V\) is a EV/V, \(n \in \mathbb{N}\) and \(\forall\; i \leq n...\;(W_i \leq V )\)
+
+\[
+\bigcap_{i=1}^n W_i \leq V
+\]
+
+Is it true that if \(W_1, W_2 \leq V\), then \(W_1\cup W_2 \leq V\)?
+
+\textbf{No}
+
+\section*{Section 1.4 - Linear Combinations / Generating Set}
+
+Def. \(V\) as a VS/F and \(\emptyset \neq S \leq V\)
+
+Given \(v\in V\), we could say that \(v\) \textbf{is a linear combination if and only if:}
+
+\(\exists n \in \mathbb{N}\) 
+
+\(\exists \{\alpha_i : i\leq n \} \subseteq \textbf{F}\) and
+
+\(\exists \{v_i : i\leq n\} \subseteq \textbf{S}\)
+
+\textbf{Notice that we require the following}:
+
+1. A natural number which serves as the limit of the summation,  from the field \mathbf{N}
+
+2. A coefficient/scalar from the field \textbf{F} 
+
+3. Vectors from a set, this set is the Generating Set...
+
+\[
+v = \sum_{i=1}^{n} \alpha_i v_i
+\]
+
+This means that some vectors may be expressed as linear combinations, and even a vector space as V could be composed by linear combinations.
+\\
+\\
+Let us see an example of this concept applied on polynomials...
+
+\(p := x^3 - 2x^2 - 5x - 3 \in \mathbb{R}[x]\)
+
+\(q := 3x^3 - 5x^2 - 4x - 9 \in \mathbb{R}[x]\)
+
+We define the set \(S\) with both vectors as its elements, satisfying that \(\emptyset \neq S \subseteq \mathbb{R}[x]\)
+
+We define \(r := 2x^3 - 2x^2 + 12x - 6 \in \mathbb{R}[x]\)
+\\
+\\
+Is the vector \(r\) a linear combination of vectors in \(S\)?
+
+Let´s see that we can only have 2 scalars, the posibilities are:
+
+n= 2 whose elements are \(\{ \alpha_1, \alpha_2\} \subseteq \mathbb{R}\) such that \(r=\alpha_1 p + \alpha_2 q\)
+\\
+
+n= 1 such that
+
+\(r = \alpha_1 p\) such that \(\{\alpha_1\} \subseteq \mathbb{R}\)
+
+\(r = \alpha_1 q\) such that \(\{\alpha_1\} \subseteq \mathbb{R}\)
+
+Notice in both cases of n=1, one polynomial is multiplied by 0
+\\
+\\
+These are the cases to get r but, this step is not necesary, at the end the most important part is found the values/scalars to get r, so
+
+What is the value for \(\alpha_1\) and \(\alpha_2\)? Or just the value of \(\alpha_1\) in other case.
+
+To found these values...
+
+We want \(r=\alpha p + \beta q\)
+
+Then, we need to solve the system of equations with the corresponding degree terms factorized. 
+
+At the end we get that \(\alpha = -4\) and \(\beta = 2\)
+\\
+\\
+If a vector is not a linear combination we need to get a contradiction, but are the same steps, solve a system of equations and see for instance that \(0=x\) with \(x\in \mathbb{R}\)\textbackslash \{0\}\
+
+\subsection*{Spam(S) - Generated Set}
+
+\end{document}
