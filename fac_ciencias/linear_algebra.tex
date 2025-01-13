@@ -4,7 +4,7 @@
 \usepackage{amssymb}
 
 
-\title{Álgebra Lineal}
+\title{Linear Algebra}
 \author{Héctor Astudillo}
 \date{December 2024}
 
@@ -622,6 +622,101 @@ At the end we get that \(\alpha = -4\) and \(\beta = 2\)
 \\
 If a vector is not a linear combination we need to get a contradiction, but are the same steps, solve a system of equations and see for instance that \(0=x\) with \(x\in \mathbb{R}\)\textbackslash \{0\}\
 
-\subsection*{Spam(S) - Generated Set}
+\subsection*{Span(S) - Generated Set}
+
+\(Span(S)\) is by definition the set of all linear combinations of vetors in \(S\).
+
+Observation.
+
+\textbf{Notice that all we need to define a linear combination is the same as what we need for the \(Span\)...}
+\\
+
+\(w \in Span(s) \iff\)
+
+1. \(\exists n \in \mathbb{N}\)
+
+2. \(\exists \{ \alpha_i : i \leq n \} \subseteq F\)
+
+3. \(\exists \{ v_i : i \leq n \} \subseteq \textbf{S}\)
+
+\[
+w = \sum_{i=1}^{n} \alpha_1 v_1
+\]
+\\
+\\
+Let us see an example
+
+\(Span(\{(0,1,0),(1,0,0)\})\)
+
+\(= \{\alpha(0,1,0) + \beta(1,0,0) : \alpha, \beta \in \mathbb{R}\}\)
+
+\(= \{(\beta,\alpha,,0) : \alpha, \beta \in \mathbb{R} \}\)
+
+\textbf{However, this element don´t generate the entire field \mathbf{R}!}
+
+This only generate \textbf{some} elements that belong to \mathbf{R}.
+
+If we try to color the area from a plane in three-dimensional space, we notice that only one side, which serves as its base, is shaded.
+
+\subsection*{Theorem 1.5 - Key Properties \(Span(S)\)}
+
+V is a VS/F and \(S \subseteq V \Rightarrow \)
+
+1. \(Span(S) \leq V\)
+
+2. If \(S\;(generating-subset\:of) \subseteq W (subspace) \leq V (space) \Rightarrow Span(S)\; (generated) \subseteq W \leq V\)
+\\
+\\
+Before proving this theorem, we need notice the following:
+
+\begin{itemize}
+    \item If \(S = \emptyset \rightarrow S \subseteq Span(S)\) such that \(Span(0) := \{0_v\}\)
+    \item If \(S \neq \emptyset\) \textbf{and \(w \in S \rightarrow n=1, v_1=w, \alpha_1 = 1 \) }, \textbf{\textit{None}} is empty or zero, so we get the linear combination defined as \( \alpha_1 v_1 = 1\cdot w = w \). 
+    
+    Thus \(w \in Span(S)\).
+    
+    In addition \(S \subseteq Span(S)\) since \(w\) is the only element that composes the set S
+\end{itemize}
+\\
+\\
+Now let´s prove the first statement of the theorem...
+\\
+
+\textbf{\textit{Is \(Span(S)\) an subspace of \(V\)?}}
+
+Let´s verify if \(Span(S)\) satisfies the 3 axioms of a subspace:
+\\
+
+1. Is \(0_{v-space} \in Span(S)\)?
+
+\begin{quote}
+There are two cases where \(S = \emptyset\) and where \(S \neq \emptyset\)
+\begin{quote}
+\(S = \emptyset\)
+\begin{itemize}
+    \item With the first case we can prove that \(0_v \in Span(S)\)
+
+In addition we need to demonstrate that in fact, the addition and multiplication is contained on \(Span(S)\)
+
+    \item Let \(x, y \in Span(S) \rightarrow x= \vec{0} =y \rightarrow x+y= \vec{0} \in Span(0)\)
+
+    \item \(\alpha \cdot x = \alpha \cdot \vec{0} = \vec{0} \in Span(S)\)
+\end{itemize}
+
+\(S \neq \emptyset\)
+\begin{itemize}
+    \item \(0_v \in Span(S)\) for \(\exists n \in \mathbb{N},\;\exists \alpha_1 \in F\) and \(z \in Span(S)\) such that \(\alpha_1 \cdot z = 0_v = 0 \cdot z = 0_v \in Span(S)\)
+
+    \item 
+\end{itemize}
+\end{quote}
+
+\textbf{Remember, with Span(S) we are talking about linear combinations as we define at the early.}
+
+\subsection{Trace of a Matrix}
+
+\end{quote}
+
+
 
 \end{document}
