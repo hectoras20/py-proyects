@@ -2,6 +2,7 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{amssymb}
+\usepackage{amsmath} 
 
 
 \title{Linear Algebra}
@@ -658,11 +659,11 @@ This only generate \textbf{some} elements that belong to \mathbf{R}.
 
 If we try to color the area from a plane in three-dimensional space, we notice that only one side, which serves as its base, is shaded.
 
-\subsection*{Theorem 1.5 - Key Properties \(Span(S)\)}
+\subsection*{Theorem 1.5 - The set of lineal combinations named \(Span(S)\) is a subspace of F}
 
 V is a VS/F and \(S \subseteq V \Rightarrow \)
 
-1. \(Span(S) \leq V\)
+1. \(Span(S) \leq V\) 
 
 2. If \(S\;(generating-subset\:of) \subseteq W (subspace) \leq V (space) \Rightarrow Span(S)\; (generated) \subseteq W \leq V\)
 \\
@@ -682,41 +683,415 @@ Before proving this theorem, we need notice the following:
 Now let´s prove the first statement of the theorem...
 \\
 
-\textbf{\textit{Is \(Span(S)\) an subspace of \(V\)?}}
+\textbf{\textit{Is \(Span(S)\) a subspace of \(V\)?}}
 
 Let´s verify if \(Span(S)\) satisfies the 3 axioms of a subspace:
 \\
 
-1. Is \(0_{v-space} \in Span(S)\)?
+There are two cases, where \(S = \emptyset\) and where \(S \neq \emptyset\) \textbf{and we need to prove in both cases the both statements from the theorem}
+
 
 \begin{quote}
-There are two cases where \(S = \emptyset\) and where \(S \neq \emptyset\)
+
 \begin{quote}
 \(S = \emptyset\)
+\\\\
+1. Is \(0_{v-space} \in Span(S)\)?
+
 \begin{itemize}
     \item With the first case we can prove that \(0_v \in Span(S)\)
-
-In addition we need to demonstrate that in fact, the addition and multiplication is contained on \(Span(S)\)
+    \\
+    
+    In addition we need to demonstrate that in fact, the addition and multiplication is contained on \(Span(S)\)
 
     \item Let \(x, y \in Span(S) \rightarrow x= \vec{0} =y \rightarrow x+y= \vec{0} \in Span(0)\)
 
     \item \(\alpha \cdot x = \alpha \cdot \vec{0} = \vec{0} \in Span(S)\)
-\end{itemize}
-
+    \end{itemize}
+    
+    2. Since \(W \leq V,\; \vec{0}_v \in W\) we conclude that \(Span(S) = \{\vec{0}_v\} \subseteq W\)
+\\
+\\
 \(S \neq \emptyset\)
+\\
+
+1. Is \(0_{v-space} \in Span(S)\)?
+
 \begin{itemize}
     \item \(0_v \in Span(S)\) for \(\exists n \in \mathbb{N},\;\exists \alpha_1 \in F\) and \(z \in Span(S)\) such that \(\alpha_1 \cdot z = 0_v = 0 \cdot z = 0_v \in Span(S)\)
 
-    \item 
+    \item Let \(x,y \in Span(S)\)
+
+    P.D \(x+y \in Span(S)\)
+    \\
+
+    \(x \in Span(S) \Rightarrow\)
+
+    \(\exists n \in \mathbb{N}\)
+
+    \(\exists \{\alpha_i : i \leq n\} \subseteq F\)
+
+    \(\exists \{v_1 : i \leq n\} \subseteq S\), such that:
+
+    \[
+    \sum_{i=1}^{n} \alpha_i \cdot v_i
+    \]
+
+Now we need to define a new limit, coefficient and vector for the other element that belong to the generated set.
+
+
+    \(y \in Span(S) \Rightarrow\)
+
+    \(\exists m \in \mathbb{N}\)
+
+    \(\exists \{\beta_i : i \leq m\} \subseteq F\)
+
+    \(\exists \{w_1 : i \leq m\} \subseteq S\), such that:
+
+    \[
+    \sum_{i=1}^{m} \beta_i \cdot v_i
+    \]
+
+    In addition we need to be careful with the indices, we will define a new degree that \textbf{encompasses} both degrees, \textbf{from} \(\rho_1\) until \(\rho_n\) we have degree \(\alpha\) \textbf{\textit{up to}} its limit (n), and \textbf{from} \(\rho_{n+1}\) until \(\rho_{n+m}\) we have degree \(\beta\) \textbf{\textit{up to }}its limit (m)
+        \[
+        \rho_j =
+        \begin{cases} 
+        \alpha_j & \text{si } j \leq n \\
+        \beta_{j-n} & \text{si } n<j\leq m+n
+        \end{cases}
+        \]
+
+    And we do the same for the vectors, using the same index (j)
+    \\
+
+    \textbf{But, why we did this?}
+
+    We are working with a sum of sums... we need to be careful with the index that serves to define the outcome from the sum of linear combinations, for at the end we are getting a new element from the \(Span(S)\)
+
+    As summary we are \textbf{dealing} with linear combinations \textbf{which} we define as sums. This is why we introduce a new index \textbf{for the new linear combination} that belong to the span.
+
+    \textbf{Study the index}
+
+    \[
+    x+y = \sum_{i=1}^{n} \alpha_i \cdot v_i + \sum_{i=1}^{m} \beta_1 \cdot w_i = \sum_{i=1}^{m+n} \rho_j z_j
+    \]
+
+    \item The product is easier than the previous point, we need to change nothing.
+    \\
+    \end{itemize}
+    
+    2. If \(S \subseteq W \leq V \Rightarrow Span(S) \subseteq W \)
+
+    We want to see that the \(Spacn(S) \subseteq W\)
+
+    Let \(x \in Span(S) \Rightarrow\) Therefore, we need to define what is necessary for a linear combination...
+
+    \(\exists n \in \mathbb{N}\)
+
+    \(\exists \{\alpha_i : i \leq n\} \subseteq F\)
+
+    \(\exists \{v_i : i \leq n\} \subseteq S\) such that
+
+    \[
+    x = \sum_{i=1}^{n} \alpha_i \cdot v_i
+    \]
+
+    Notice that our vector \(\vec{v} \subseteq S \subseteq W\) such that \(\vec{v} \subseteq W\) and \(W\leq V\)
+
+    Therefore \(x = \sum_{i=1}^{n} \alpha_i \cdot v_i = x \in W\)
+    
+\end{quote}
+
+We already prove both cases; for this we concluded that \(Span(S)\leq V\)
+\end{quote} 
+
+This set of linear combinations \(Span(S)\) is a subspace
+\\
+\\
+\textbf{Remember, when we refer to Span(S) we are talking about linear combinations as define earlier in this subsection.\\ITS ELEMENTS ARE LINEAR COMBINATIONS of a scalar and a vector} 
+
+\subsection*{When a generating set \(S\) generates a space \(V\)}
+
+We say that \(S\) generates \(V \iff Span(S)=V\)
+\\
+Notice if \(S(generating) \subseteq V(space) \Rightarrow Span(S)(generated) \leq(subspace-of) V \) in special \(Span(S) \subseteq V\)
+
+Thus, \(S\) generates \(V \iff V \subseteq Span(S)\)
+
+\subsubsection*{Example with Vectors}
+
+Let define \(\vec{u} = (1,1,0), \vec{v} = (1,0,1), \vec{w}= (0,1,1)\)
+
+Affirmation:
+
+If \(S = \{\vec{u}, \vec{v}, \vec{w}\} \Rightarrow S\) generates \(\mathbf{R}^3\) since \(Span(S) = \mathbf{R}^3\)
+\\
+This means that we can obtain any vector that belongs to \(\mathbf{R}^3\) as a linear combination of 3 scalars from \(\mathbf{R}\) and the 3 vectors from S.
+
+\textbf{To be proven/to be shown} \(\mathbb{R}^3 \subseteq Span(S)\)
+
+That means that exits an element from \(\mathbf{R}^3\) obtained by a linear combination of 3 scalars and the 3 given vectors. 
+\\
+
+The scalars for this example need to be generalized to obtain any element of the field. 
+
+\(\exists x \in \mathbb{R}^3\)
+
+With this, \(\exists \alpha, \beta, \rho \in \mathbf{R}\) such that:
+
+\(x = \alpha \cdot \vec{v} + \beta \cdot \vec{v} + \rho \cdot \vec{w}\) 
+
+The entries of x are \(x_1, x_2, x_3\) need be equal to the entries of the linear combination...
+
+\((x_1, x_2, x_3) = (\alpha + \beta, \alpha + \rho, \beta + \rho)\)
+\\
+
+Now we need to solve a system of equations, this could be the anti-dummies method (tidy stairs).
+
+\textit{We need to obtain only one solution from the system, only one is enough, if you obtain it, that means indirectly, you could obtain any element from the space since we generalized the solutions.}
+
+Finally, we can see that, in fact, \(\exists \alpha, \beta, \rho \in \mathbf{R}\) with one solution such that \(x \in Span(S)\)
+
+\subsubsection*{Example with Polynomials}
+Let´s see another example with polynomials
+
+\(p = x^2 + 3x -2, q = 2x^2 + 5x -3\) and \(r=x^2 - 4x +4\)
+
+Notice, \(S = \{ p,q,r\} \subseteq \mathbb{R}_2[x]\), the collection of polynomials with a \textbf{term degree less than or equal to 2}
+
+Affirmation
+
+\(S\) generaate \(\mathbb{R}_2[x]\)
+
+Let x be an element that belongs to the vector space... \(x \in \mathbf{R}_2[x]\)
+
+\textbf{That means a limit exists} but in this case is already defined by the field...
+
+\textbf{There exist} 3 scalars from our field \(\mathbb{R}\) that we will define as \(\alpha, \beta, \rho\)
+\\
+
+\(x=ax^2+bx+c\)
+
+There is no \textbf{\textit{guarantee}} that a, b and c are equal to 0
+
+Let´s see if we have a solution in our system of equations but to get this, we need to remember that the system is formed by a linear combination (with the elements we define) which is:
+
+\(\alpha \cdot p + \beta \cdot q + \rho \cdot r = ax^2 + bx +c\)
+
+\(= (\alpha+2\beta-\rho)x^2 + (3\alpha + 5\beta -4)x + (-2\alpha -3\beta +4\rho))\) such that we \textbf{form/create} an equallity with the values of the polynomial \(x\).
+\\
+
+Solving the system, we find a solution, that is enough.
+\\
+
+Thus, \(\{p,q,r\}\) generate the space \(\mathbf{R}_2[x]\)
+
+\subsubsection*{Example with Matrices}
+
+Let \(L =
+\begin{bmatrix}
+0 & 1 \\
+1 & 1 \\
+\end{bmatrix}, M =
+\begin{bmatrix}
+1 & 0 \\
+1 & 1 \\
+\end{bmatrix}, N =
+\begin{bmatrix}
+1 & 1 \\
+0 & 1 \\
+\end{bmatrix}, Ñ = 
+\begin{bmatrix}
+    1 & 1 \\
+    1 & 0 \\
+\end{bmatrix}
+\)
+\\
+
+Then, \(S = \{L,M,N,Ñ\} \subseteq \mathbb{R}^{2x2}\)
+
+To be proven the space \(\mathbb{R}^{2x2}\) is generated by S... that means prove that \(\mathbf{R}^{2x2} \subseteq Span(S)\), \textbf{the vector space is subset of the generated set}.
+\\
+
+Let \(A \in \mathbb{R}^{2x2}\)
+\\
+
+P.D. \(\exists \{\alpha, \beta, \rho, \sigma\} \in \mathbf{R}\) such that the element A is a linear combination of these elements and the matrices defined.
+
+\(A = \begin{bmatrix}
+    A_{1,1} & A_{1,2} \\
+    A_{2,1} & A_{2,2} \\
+\end{bmatrix} = \begin{bmatrix}
+    a & b \\
+    c & d \\
+\end{bmatrix} \Rightarrow \alpha L + \beta M + \rho N + \sigma Ñ = \begin{bmatrix}
+    \beta + \rho + \sigma & \alpha + \rho + \sigma \\
+    \alpha + \beta + \sigma & \alpha + \beta + \rho \\
+\end{bmatrix}\)
+\\
+
+Solving the system of equations we obtain a solution, with this we conclude that \(S\) generate the space \(\mathbb{R}^{2x2}\)
+
+\subsubsection*{Example of something that fails to/does not generate}
+Remember that an augmented matrix is "A \textbf{matrix that includes both the coefficients of the variables and the constants from a system of linear equations}."
+\\\\
+Let \(L = \begin{bmatrix}
+    1 & 0 \\
+    0 & 1 \\
+\end{bmatrix}, M = \begin{bmatrix}
+    1 & 1 \\
+    0 & 1 \\
+\end{bmatrix}, N = \begin{bmatrix}
+    1 & 0 \\
+    1 & 1 \\
+\end{bmatrix}\)
+\\
+
+\(S = \{L, M ,N\} \subseteq \mathbb{R}^{2x2}\)
+
+Affirmation 
+
+S does not generate \(\mathbb{R}^{2x2}\)
+
+If I propose scalars as \(\alpha, \beta, \rho \in \mathbb{R}^{2x2}\) we can notice that the matrix \(\begin{bmatrix}
+    0&0\\
+    0&1\\
+\end{bmatrix}\) is an element from the space that \textbf{cannot be obtained }as a linear combination \textbf{of the defined vectors and scalars.}
+
+By solving the system of equations using an augmented matrix we obtain a row with an inconsistency, 1 = 0
+
+This means that there is no solution in the system and as a result, S does not \textbf{span} the space, so \(\mathbb{R}^{2x2} \nsubseteq Span(S)\)
+\\
+
+\(\therefore \neg \exists \{\alpha, \beta, \rho\} \subseteq \mathbb{R} : A = \alpha \cdot L + \beta \cdot M + \rho \cdot N \)
+
+\subsection*{Trace of a Matrix - Introduction of this function}
+We already define the transposed matrix...
+
+Let \(m, n \in \mathbb{N}\) and \(A \in F^{mxn}, \forall i \leq m,\; \forall j \leq n\)
+
+If we have a matrix \(A = (a_{\textbf{ij}})\), then \(A^t = (a_{\textbf{ji}})\)
+\\\\
+\textbf{The trace of a matrix is the sum of its diagonal entries...}
+
+tr(M) = \(\sum M_{ii}\)
+
+tr(N) = \(\sum N_{ii}\)
+
+\section*{Section 1.5 - Linearly Dependent and Independent}
+\subsection*{Is a set (as the generating set) linearly dependent?}
+Def. \(V\) is a VS/F and \(S \subseteq V\), the generating set is a subset of the space
+
+\textbf{We say that the generating set is linearly dependent if}
+
+\(\exists n \in \mathbb{N}\) - a limit/term degree
+
+\(\exists \{ v_i : i \leq n\} \subseteq S\)
+
+\(\exists \{ \alpha_i : i \leq n\} \subseteq F\)
+
+We define the same elements from a linear combination... a limit, vectors, and scalars. Such that:
+
+\[
+\vec{0} = \sum_{i=1}^{n} \alpha_1 v_1 
+\]
+
+But we need to establish conditions because we can easily obtain \(\vec{0}\) doing the scalars equal to 0
+\\
+\begin{itemize}
+    \item Condition 1 : \(i \neq j \rightarrow v_i \neq v_j\) 
+
+This means that the \textbf{vectors are different from each other.} 
+
+Called \textbf{"Faithfully indexed without repetitions"}
+\\
+
+    \item Conditions 2: The scalars need to be different from 0. 
 \end{itemize}
-\end{quote}
 
-\textbf{Remember, with Span(S) we are talking about linear combinations as we define at the early.}
+With these conditions, we rewrite the statements as follows:
 
-\subsection{Trace of a Matrix}
+\(\exists n \in \mathbb{N}
 
-\end{quote}
+\exists \{v_i : i \leq n \} \subseteq S\) without repetitions
 
+\(\exists \{\alpha_i : i \le qn \} \subseteq F \text{\textbackslash}
+ \{0\}\)
 
+Such that:
+
+\[
+\sum_{i=1}^{n} \alpha_1 v_1 = \vec{0}
+\]
+
+%%If the result of the linear combination is unequal to 0 we call this linearly independent.
+\\
+
+\textbf{\textit{Let´s see an example with vectors...}}
+
+Let \(w_1 = (1,3,-4,2), w_2 = (2,2,-4,0), w_3=(1,-3,2,-4)\) and \(w_4=(-1,0,1,0)\)
+
+\(S=\{W_i : i \leq 4\} \subseteq \mathbb{R}^4\)
+
+\textbf{Affirmation - S is linearly dependent, which means that its solutions as a linear combination satisfy to be unequal to 0.}
+\\
+
+Then , \(\exists \alpha, \beta, \rho, \sigma \in \mathbb{R}\text{\textbackslash\{0\}}\) such that:
+
+\(\alpha \cdot w_1 + \beta \cdot w_2 + \rho \cdot w_3 + \sigma \cdot w_4 = \vec{0}\)
+\\
+
+Now we can solve this as a system of equations.
+
+One solution to this system is as follows: 
+
+\(\alpha = 4, \beta = -3, \rho = 2, \sigma = 0\)
+
+There is not problem if one scalar is equal to 0, \textbf{we only require that all other scalars must not be 0.}
+\\
+
+\textbf{\textit{Now let´s see an example with matrices...}}
+
+Let \(M \begin{bmatrix}
+    1&-3&2\\
+    -4&0&5\\
+\end{bmatrix}, N = \begin{bmatrix}
+    -3&7&4\\
+    6&&-2&-7\\
+\end{bmatrix}, Ñ = \begin{bmatrix}
+    -2&3&11\\
+    -1&-3&2\\
+\end{bmatrix}\)
+\\
+
+\(S = \{M,N,Ñ\} \subseteq \mathbb{R}^{2x3}\)
+
+Affirmation - S is LD, this means that its linear combination is equal to the vector 0.
+
+\(\exists \alpha, \beta, \rho \in \mathbb{R} \text{\textbackslash}\{0\} : \alpha \cdot M + \beta \cdot N + \rho \cdot Ñ = \vec{0}?\)
+\\
+
+A solution to this system is as follows:
+
+\(\alpha = 5, \beta = 3, \rho =-2\), which are unequal to 0
+
+\textbf{Remember that it is enough for only one value to be unequal to 0.}
+
+\(\therefore S\) is LD.
+
+\subsection*{Observations about linearly independent sets}
+\begin{itemize}
+    \item The empty set is \textbf{linearly independent} because the set could have only trivial solutions. 
+    \item In any vector space, a set with only one element non-null is \textbf{linearly independent.} This makes sense because the only scalar which could obtain a 0 vector is the product between the unique vector and the scalar 0.
+    \item A generating set \(S\) is linearly independent iff the unique solution to the linear combination is the trivial solution, where all scalars are equal to 0.
+\end{itemize}
+
+\subsection*{Theorem 1.6 - Linearly Dependent Sets, related by subset inclusion}
+
+Let \(V\) be a vector space, and let \(S_1 \subseteq S_2 \subseteq V\)
+
+If \(S_1\) is linearly dependent, which is a subset of another set \(S_2\), then \(S_2\) is also linearly dependent.
+
+\section*{Section 1.6 - Bases}
 
 \end{document}
