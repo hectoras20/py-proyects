@@ -1554,9 +1554,9 @@ The basis \(B = \{ p,q,r \}\) generates the vector space \(\mathbb{R}_2[x]\)
 
 Notice that \(dim(\mathbb{R}_2[x]) = 2+1 = 3\) which satisfies the previous theorem, was commented on, and \(|B| = 3\)
 
-\subsection*{Trick to check that a vector space with dimension \(n\) and a set with cardinality \(n\) is linearly independent}
+\subsection*{Corollary/Trick to check that a vector space with dimension \(n\) and a set with cardinality \(n\) are linearly independent}
 
-That set we are attempting to find is \(B\) which has a cardinality of \(n\). Since \textbf{the vector space has a dimension of }\(n\), this is sufficient to affirm that the set is linearly independent. Additionally, we can apply the trick of checking whether vector in the set can be expressed as a linear combination of the others.
+That set we are attempting to find is \(B\) which has a cardinality of \(n\). Since \textbf{the vector space has a dimension of }\(n\), this is sufficient to affirm that the set is linearly independent. Additionally, we can apply the trick of checking whether a vector in the set can be expressed as a linear combination of the others.
 
 \(\therefore B\) is linearly independent and is a basis for the vector space.
 \\
@@ -1584,7 +1584,7 @@ We need to check the proposed basis satisfies the following:
 
 1. \(Span(S) = \mathbb{R}^{2 \text{x} 2}\)
 
-Which in other sense, the elements of the basis might generates all the elements of the vector space.
+Which, in other sense, the elements of the basis might generates all the elements of the vector space.
 \\
 
 2. Is linearly independent
@@ -1593,11 +1593,185 @@ We can check this with the previous trick, let´s see that \(|S| = 4\) and \(\ma
 
 \(\therefore S\) is a basis for the vector space.
 
-\subsection*{Theorem 1.11 - Basis of a vector space with dimension finite and the relation with subspaces}
-If \(V\) is a VS/F with \(dim<\infty\) (finite dimension) then there exists a basis B for V such that B is a finite set and \(W\leq V \Rightarrow dim (W) \leq dim(V)\), we obtain that V=W
+\subsection*{Theorem 1.11 - Basis of a vector space with finite dimension and the relation with subspaces}
+If \(V\) is a VS/F with \(dim<\infty\) (finite dimension) then there exists a basis B for V such that B is a finite set and \(W\leq V \Rightarrow dim (W) \leq dim(V)\), we obtain V=W
 \\
 
-We have 2 basis, one for the space and another for W, the subspace.
+We have 2 bases, one for the space and another for W, the subspace.
 
+\subsection{Corollary - Let \(L \subseteq V\)} such that is linearly independent then, \(\exists H \subseteq V (L \cup H )\) is a BASIS for V
+
+To be proven the theorem:
+\begin{itemize}
+    \item Case 1 : \(W = \{\vec{0}\}\)
+
+    \(dim(W) = 0 = dim(V)\)
+
+    \(\therefore\)\textbf{ the basis for this subspace that is equal to the space is 0}
+
+    \item Case 2 : \(W \neq \{\vec{0}\}... \; W \nsubseteq \{\vec{0}\} \land \{\vec{0}\} \nsubseteq W \text{ and } \therefore W \nsubseteq \{\vec{0}\}...?\)
+
+    Since the space is non equal to the zero vector...
+
+    \(\exists w_1 \in W \text{ since }W \neq \vec{0}),\text{ therefore, } W = \{w_1\}\) \textbf{which is linearly independent even. We already have an element for our basis.}
+    \\
+    
+    \(\exists w_2 \in W \text{\textbackslash}w_1\) such that \(\{w_1, w_2\}\) is linearly independent?
+
+    - Yes, we add this element into de set
+
+    - No, in any moment we need to stop.
+
+    In this case, if the answer is Yes, then we already have 2 elements, behold:
+
+    \(\exists H \subseteq V : H \cup \{w_!, w_2\}\) are linearly independent.
+
+    Notice: 
+    \begin{itemize}
+    \item This new set has \textbf{cardinality H+2}
+
+    \item \textbf{W will be the total, the complete union after adding H to the previous set with 2 elements.}
+    \end{itemize}
+
+    After this, we can continue working with the other set that we were \textbf{merging}, and wonder if \(\exists w_3?\)
+
+    But at this point, there must exists a limit, remember that the space and therefore the subspace, have a finite basis.
+
+    We can propose \(m\) as the limit, but \textbf{how do we know that it ends there}? Let´s define the following:
+
+    Let \(m = dim(V)\) and \(\{w_i : i \leq m\}\) such that \(n \leq m\)
+
+    Notice this important point: \(n \leq m\), that means we need to find a limit between the two.
+   
+    But having \(m\) as the limit that cannot be surpass by the elements, if I propose the existence of \(w_{m+1}\), it may not be possible.
+    \\
+
+    W is a finite set but now \textbf{the process is bounded}(acotado), it cannot \textbf{surpass}(sobrepasar) the limit \(m\) which is the maximum number of elements that can form the basis.
+    \\
+    
+    Then, \(\exists k \in \mathbb{N} (\{w_i : i \leq k\} \subseteq W)\) \textbf{faithfully indexed}, linearly independent and
+
+    \(\forall v \in W\text{\textbackslash}\{w_i : i \leq k | \{w_i : i\leq k\}\cup \{v\}\}\) is linearly independent.
+
+    \(\therefore k \leq m\)
+
+    Then, \(B:=\{w_i : \leq k\}\) is linearly independent.
+    \\
+    
+    Now it remains to be proved \(W = Span(B)\)
+
+    We need to convince us that \(W \subseteq Span(B) \land Span(B) \subseteq W\)
+
+    Remember that \(B \subseteq W\) then, if \( \in W\text{\textbackslash} B \Rightarrow B \cup \{v\}\) is linearly dependent \textbf{merged them.}
+
+    Explication:
+    
+    This makes sense, the basis have to be linearly independent to can get any element from the space or subspace, we are selective with the elements that belongs to the basis then, if we add an element that can be obtained with the elements from the basis (means that it belongs to the generated set)... this new set is linearly dependent because the element added (for this case \(v\)) can be obtained from the multiplication of a scalar with another vector of the basis, this is satisfied and therefore, is linearly dependent.
+
+    The union of a set (that is a subset of the space) with an element that belongs to the space but not into its basis then are linearly dependent.
+    \\
+    
+    \(dim(W) = k \leq m = dim(V)\)
+
+    But, remember that we said that \(dim(V) = dim(W) = m = k\)
+
+    Then, \(\exist \{v_i : i \leq m \} \subseteq V\) which is a basis for V and is linearly independent, since \(|L| = m = dim(V)\) and by the corollary which says that if we have a cardinality equal to the dimension of the space then we have that are linearly independent, additionally we already see that is the Span equal to the space, we obtain that is a basis
+
+    \(\therefore V = Span(S) = W\)
+
+    Interpretation: Getting that V is equal to the span means that the generating set S for this case is a basis for V, adding that needs to be linearly independent of course.
+\end{itemize}
+\subsection*{Reminder - \(S \cup \{v\}\) is linearly dependent \(\iff v \in Span(B)\) taking \(v\) from \(W\text{\textbackslash}B\)}
+
+\subsection*{Examples, Is a set a basis for a subspace?}
+
+\subsubsection*{A space with dimension m could be a subspace for a space with dimension n such that \(m \leq n\)}
+1. \textbf{Let´s define the subspace as follows:} 
+
+\(W := \{x \in \mathbb{F}^5 : x_1 + x_3 + x_5 = 0\}\) and \(x_2 = x_4\), \textbf{this have to be satisfied by the elements that we will propose for the basis of W.}
+
+Then, \(W \leq \mathbb{F}^5\)
+
+Is the set \(B := \{(-1,0,0,0,1),(-1,0,1,0,0),(0,1,0,1,0)\} \subseteq W\) a basis? 
+
+Behold, each vector has to satisfy the definition of W, this satisfies.
+
+We have 2 ways to prove that this set is linearly independent, solving a system of equations \textbf{or using a simpler approach}(enfoque más simple/método más sencillo)-checking that the vectors are not scalar multiples each other.
+
+Notice that we can obtain any element of the vector space through a linear combination with the vectors of the basis with a scalar set.
+
+The most important part is that the dimension of this subspace is 3, not 5, which could be a mistake \textbf{on out part}.
+
+\(\therefore B\) is a basis for \(W \Rightarrow dim(W) = 5\)
+\\
+\\
+2. Let´s define \(W\) as the subspace that consist of all diagonal matrices.
+
+Let \(n\) such that it is the dimension of our matrices, remember that diagonal matrices are exclusive from square matrices.
+
+\(B :=\{E^{ii} : i \leq n\} \subseteq W\)
+
+\(B \subseteq \{E^{kl} : k,l \leq n\}\)
+
+\(\therefore B\) is linearly independent and \(W =Span(B)\)
+
+Notice that, the dimension of \(W\) is \(n\), it makes sense because the size of a matrix that belongs to the space is the same as its diagonal, because all of this serves only in square matrix.
+\\
+\\
+\subsubsection*{Example with transposed matrices, be careful with the size, interpret it correctly}
+3. 
+
+
+\section*{1.7 Linear Transformations}
+Now we want to connect vector spaces, for that we use the transformational function.
+
+Definition. 
+
+Let \(V, W\) be vector spaces.
+
+\(T:V\rightarrow W\) is linear if \(\forall x,y \in V,\;\forall\alpha \in F\)...
+
+1. \(T(x+y) = T(x) + T(y)\)
+
+2. \(T(\alpha\cdot x) = \alpha \cdot T(x)\)
+
+For any element of the domain.
+\\
+\\
+To be proven in a summary way:
+
+\(T(\alpha \cdot x + y) = \alpha \cdot T(x) + T(y)\)
+
+\(\rightarrow \alpha \cdot x \in V,\; \therefore \alpha x, y \in V\)
+
+1. \(\rightarrow T(\alpha \cdot x + y) = T(\alpha \cdot x) + T(y)\)
+
+2. \(\rightarrow T(\alpha \cdot x) = \alpha \cdot T(x)\)
+
+\(\therefore T(\alpha \cdot x + y) = T(\alpha \cdot x) + T(y) = \alpha \cdot T(x) + T(y)\)
+
+Now let us see some examples
+
+\subsection{Example 1}
+
+Let \(T : \rightarrow R^{2} \rightarrow R^{2}\) and \(\forall x \in \mathbb{R}^{2}\;(T(x) = (2x_1 + x_2 ,\:x_1))\) - This is transformed, send to W.
+
+Affirmation: T is linear.
+
+Let \(x,y \in \mathbb{R}^{2}\) and \(\alpha \in \mathbb{R}\)
+
+Then, \(T(\alpha \cdot x +y) = (2(\alpha x_1 + y_1 + ) + (\alpha x_2 + y_1), \alpha x_1 + y_1)\) - Notice that we keep the structure of the codomain once applied to sent to W.
+
+The following is only algebra:
+
+\(=(2\alpha x_1 + 2y_1 + \alpha x_2 + y_2,\;\alpha x_1 + y_1)\)
+
+Notice that we may reorder the values while keeping the addition:
+
+\(=(2\alpha x_1 + \alpha x_2, \alpha x_1)\;+\;(2y_1 + y_2, y_1)\)
+
+\(=\alpha (2x_1 + x_2, x_1) + (2y_1 + y_2, y_1\) - If you become confused with these steps, you can start noticing that this is what you want to obtain.  
+
+\(=\alpha \cdot T(x) + T(y)\)
 
 \end{document}
