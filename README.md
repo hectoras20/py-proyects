@@ -1,1 +1,1 @@
-# Repositorio personal de proyectos realizados durante mi camino a Ciencia de Datos
+# This repository contains projects created as part of my preparation for a career in Data and Actuarial Science.
